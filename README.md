@@ -6,3 +6,7 @@
 ) advance 5 secs
 | play/pause
 S rewind to the beginning
+* mute/unmute
++ volumeUp
+- volumeDown
+```
