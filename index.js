@@ -18,6 +18,9 @@
 		timePlus: ')',
 		timeMinus: '(',
 		playPause: '|',
+		volumeUp: '+',
+		volumeDown: '-',
+		muteUnmute: '*',
 		to0: 'S',
 	}
 	document.onkeyup = e => {
@@ -41,6 +44,16 @@
 				break;
 			case keys.to0:
 				el.currentTime = 0;
+				break;
+			case keys.volumeDown:
+				el.volume = el.volume - 0.1 > 0 ? (el.volume - 0.1).toFixed(1) : 0
+				break
+			case keys.volumeUp:
+				el.volume = el.volume + 0.1 < 1 ? (el.volume + 0.1).toFixed(1) : 1
+				break
+			case keys.muteUnmute:
+				el.muted = !el.muted
+				break
 		}
 		if ([keys.ratePlus, keys.rateMinus].indexOf(e.key) > -1) {
 			const toast = document.createElement("div");
